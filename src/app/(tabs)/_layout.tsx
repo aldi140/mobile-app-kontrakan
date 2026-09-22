@@ -45,6 +45,12 @@ const TabLayout = () => {
           ),
         }}
       />
+      <Tabs.Screen
+        name="contracts"
+        options={{
+          href: null,
+        }}
+      />
     </Tabs>
   );
 };
