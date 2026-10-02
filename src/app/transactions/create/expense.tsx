@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/atoms/Button";
 import { Text } from "@/components/ui/atoms/Text";
 import { TextInput } from "@/components/ui/atoms/TextInput";
+import { ErrorModal } from "@/components/ui/ErrorModal";
 import { Header } from "@/components/ui/Header";
 import { CalendarBottomSheet } from "@/components/ui/molecules/CalendarBottomSheet";
 import { InputGroup } from "@/components/ui/molecules/InputGroup";
@@ -9,6 +10,7 @@ import { SuccessScreen } from "@/components/ui/SuccessScreen";
 import { colors } from "@/constants/color";
 import { useCreateExpense } from "@/features/expenses/hooks/useCreateExpense";
 import { useExpenseCategories } from "@/features/expenses/hooks/useExpenseCategories";
+import { useErrorModal } from "@/hooks/useErrorModal";
 import { formatDate } from "@/utils/format";
 import { Ionicons } from "@expo/vector-icons";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
@@ -72,6 +74,7 @@ const SkeletonBadgeCategory = () => {
 };
 
 export default function CreateExpenseScreen() {
+  const errorModal = useErrorModal();
   const { data: categories, isLoading } = useExpenseCategories();
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const calendarRef = useRef<BottomSheetModal>(null);
@@ -102,11 +105,7 @@ export default function CreateExpenseScreen() {
       try {
         await createExpense(values);
       } catch (error: any) {
-        Toast.show({
-          type: "error",
-          text1: error,
-          position: "bottom",
-        });
+        errorModal.showError(error);
       }
     },
     validationSchema: expenseSchema,
@@ -287,6 +286,11 @@ export default function CreateExpenseScreen() {
           />
         </SafeAreaView>
       )}
+      <ErrorModal
+        visible={errorModal.visible}
+        message={errorModal.message}
+        onClose={errorModal.hideError}
+      />
     </>
   );
 }

@@ -55,7 +55,7 @@ export default function FinanceTransactionScreen() {
         backgroundColor: colors.background,
       }}
     >
-      <Header title="Transactions" description="Daftar Transaksi" showBack />
+      <Header title="Transaksi" description="Daftar Transaksi" showBack />
       <View style={{ gap: 16, marginTop: 16 }}>
         <View
           style={{
