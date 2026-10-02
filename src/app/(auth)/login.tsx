@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/atoms/Button";
+import { ErrorModal } from "@/components/ui/ErrorModal";
 import { FloatingInput } from "@/components/ui/molecules/FloatingInput";
 import { colors } from "@/constants/color";
 import { useLogin } from "@/features/auth/hooks/useLogin";
 import { loginSchema } from "@/features/auth/schemas/auth.schema";
+import { useErrorModal } from "@/hooks/useErrorModal";
 import { Image } from "expo-image";
 import { useFormik } from "formik";
 import {
@@ -14,7 +16,8 @@ import {
 } from "react-native";
 
 export default function LoginScreen() {
-  const { mutate: doLogin, isPending, isError, error } = useLogin();
+  const { mutate: doLogin, isPending } = useLogin();
+  const errorModal = useErrorModal();
 
   const formik = useFormik({
     initialValues: { email: "", password: "" },
@@ -30,6 +33,7 @@ export default function LoginScreen() {
             "Login Error Response:",
             err?.response?.data || err.message,
           );
+          errorModal.showError(err);
         },
       });
     },
@@ -58,13 +62,6 @@ export default function LoginScreen() {
           </View>
 
           <View style={{ gap: 16 }}>
-            {isError && (
-              <Text style={styles.errorText}>
-                {(error as any)?.response?.data?.message ||
-                  (error as any)?.message ||
-                  "Email atau password salah"}
-              </Text>
-            )}
             <View>
               <FloatingInput
                 label="Email"
@@ -96,6 +93,11 @@ export default function LoginScreen() {
           </View>
         </View>
       </View>
+      <ErrorModal
+        visible={errorModal.visible}
+        message={errorModal.message}
+        onClose={errorModal.hideError}
+      />
     </KeyboardAvoidingView>
   );
 }

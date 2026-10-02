@@ -100,7 +100,7 @@ export const FilterSheetTransaction = forwardRef<
   };
 
   const handleResetFilter = () => {
-    setTransactionType("all");
+    // setTransactionType("all");
     setStartDate("");
     setEndDate("");
 
