@@ -1,10 +1,12 @@
 import { Button } from "@/components/ui/atoms/Button";
 import { Text } from "@/components/ui/atoms/Text";
 import { TextInput } from "@/components/ui/atoms/TextInput";
+import { ErrorModal } from "@/components/ui/ErrorModal";
 import { AppBottomSheet } from "@/components/ui/molecules/AppBottomSheet";
 import { SuccessScreen } from "@/components/ui/SuccessScreen";
 import { colors } from "@/constants/color";
 import { Room } from "@/features/rooms/room.types";
+import { useErrorModal } from "@/hooks/useErrorModal";
 import { formatDate } from "@/utils/format";
 import { Ionicons } from "@expo/vector-icons";
 import { BottomSheetModal, BottomSheetScrollView } from "@gorhom/bottom-sheet";
@@ -24,6 +26,7 @@ export const EndContractBottomSheet = forwardRef<
   BottomSheetModal,
   CreateContractBottomSheetProps
 >(({ selectedRoom, onClose, onDismiss }, ref) => {
+  const errorModal = useErrorModal();
   const {
     mutateAsync: endContract,
     isPending,
@@ -51,6 +54,7 @@ export const EndContractBottomSheet = forwardRef<
         });
       } catch (error) {
         console.log(error);
+        errorModal.showError(error);
       }
     },
   });
@@ -257,6 +261,11 @@ export const EndContractBottomSheet = forwardRef<
             <ActivityIndicator size="large" color={colors.primary[600]} />
           </View>
         )}
+        <ErrorModal
+          visible={errorModal.visible}
+          message={errorModal.message}
+          onClose={errorModal.hideError}
+        />
       </View>
     </AppBottomSheet>
   );

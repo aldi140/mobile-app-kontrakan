@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/atoms/Button";
 import { Text } from "@/components/ui/atoms/Text";
 import { TextInput } from "@/components/ui/atoms/TextInput";
+import { ErrorModal } from "@/components/ui/ErrorModal";
 import { AppBottomSheet } from "@/components/ui/molecules/AppBottomSheet";
 import { colors } from "@/constants/color";
 import { Room } from "@/features/rooms/room.types";
+import { useErrorModal } from "@/hooks/useErrorModal";
 import { formatDate, formatRupiah } from "@/utils/format";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -43,6 +45,7 @@ export const CreatePaymentBottomSheet = forwardRef<
   BottomSheetModal,
   CreatePaymentBottomSheetProps
 >(({ selectedRoom, onClose, onDismiss }, ref) => {
+  const errorModal = useErrorModal();
   // console.log(selectedRoom);
   const calendarRef = useRef<BottomSheetModal>(null);
   const [dateField, setDateField] = useState<
@@ -88,6 +91,7 @@ export const CreatePaymentBottomSheet = forwardRef<
         await createPayment(values);
       } catch (error) {
         console.log(error);
+        errorModal.showError(error);
       }
     },
     validationSchema: Yup.object({
@@ -402,6 +406,11 @@ export const CreatePaymentBottomSheet = forwardRef<
 
           handleCloseCalendar();
         }}
+      />
+      <ErrorModal
+        visible={errorModal.visible}
+        message={errorModal.message}
+        onClose={errorModal.hideError}
       />
     </>
   );

@@ -112,7 +112,7 @@ export const FinanceScreen = () => {
           <Card style={styles.card_balance}>
             <CardContent>
               <Text
-                size="md"
+                size="sm"
                 variant="white"
                 weight="medium"
                 style={{ opacity: 0.8 }}
@@ -204,7 +204,7 @@ export const FinanceScreen = () => {
                   />
                 </View>
                 <View>
-                  <Text size="md" weight="medium" variant="mutedForeground">
+                  <Text size="sm" weight="medium" variant="mutedForeground">
                     Pemasukan
                   </Text>
                   <Text
@@ -244,7 +244,7 @@ export const FinanceScreen = () => {
                   />
                 </View>
                 <View>
-                  <Text size="md" weight="medium" variant="mutedForeground">
+                  <Text size="sm" weight="medium" variant="mutedForeground">
                     Pengeluaran
                   </Text>
                   <Text

@@ -69,11 +69,7 @@ export default function CreateIncomeScreen() {
         console.log("payload", values);
         await createPayment(values);
       } catch (error: any) {
-        if (error instanceof AppError) {
-          errorModal.showError(error.message);
-        } else {
-          errorModal.showError("Terjadi kesalahan.");
-        }
+        errorModal.showError(error);
       }
     },
     validationSchema: Yup.object({

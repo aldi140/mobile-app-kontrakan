@@ -78,12 +78,11 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   title: {
-    fontSize: 18,
-    fontWeight: "600",
+    fontSize: 16,
     color: colors.foreground,
     letterSpacing: -0.4,
     lineHeight: 20,
-    fontFamily: "Poppins_600SemiBold",
+    fontFamily: "Poppins_500Medium",
   },
   description: {
     fontSize: 14,
