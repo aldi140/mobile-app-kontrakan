@@ -122,7 +122,7 @@ export default function HomeScreen() {
         <View
           style={{
             flexDirection: "row",
-            padding: 16,
+            paddingHorizontal: 16,
             justifyContent: "space-between",
             alignItems: "center",
           }}
@@ -130,7 +130,7 @@ export default function HomeScreen() {
           <View
             style={{
               flexDirection: "row",
-              padding: 16,
+              paddingVertical: 16,
               gap: 16,
             }}
           >
@@ -156,10 +156,10 @@ export default function HomeScreen() {
                 justifyContent: "center",
               }}
             >
-              <Text size="md" weight="bold" variant="white">
+              <Text size="sm" weight="bold" variant="white">
                 Kontrakan Hj wiwi
               </Text>
-              <Text size="sm" weight="regular" variant="white">
+              <Text size="xs" weight="regular" variant="white">
                 Kelola properti
               </Text>
             </View>
@@ -171,7 +171,7 @@ export default function HomeScreen() {
             onPress={handleLogout}
           />
         </View>
-        <View style={{ padding: 16 }}>
+        <View style={{ paddingHorizontal: 16 }}>
           <Card style={styles.card_balance}>
             <BlurView
               intensity={10}
@@ -179,10 +179,10 @@ export default function HomeScreen() {
               style={StyleSheet.absoluteFill}
             />
             <CardContent>
-              <Text size="sm" variant="white" weight="medium">
+              <Text size="xs" variant="white" weight="regular">
                 Saldo Bersih
               </Text>
-              <Text size="2xl" weight="bold" variant="white">
+              <Text size="xl" weight="bold" variant="white">
                 {formatRupiah(data?.summary?.balance)}
               </Text>
               <View
@@ -222,7 +222,7 @@ export default function HomeScreen() {
 
                   {data?.summary?.comparison.balance.percentage !== null && (
                     <Text
-                      size="sm"
+                      size="xs"
                       weight="semibold"
                       variant="primary"
                       style={{
@@ -244,7 +244,7 @@ export default function HomeScreen() {
                   )}
                 </View>
                 {data?.summary?.comparison.balance.percentage !== null ? (
-                  <Text size="sm" variant="white" style={{ opacity: 0.8 }}>
+                  <Text size="xs" variant="white" style={{ opacity: 0.8 }}>
                     dari bulan lalu
                   </Text>
                 ) : (
@@ -270,9 +270,9 @@ export default function HomeScreen() {
               />
               <CardContent>
                 <Text
-                  size="sm"
+                  size="xs"
                   variant="white"
-                  weight="medium"
+                  weight="regular"
                   style={{ opacity: 0.8 }}
                 >
                   Pemasukan
@@ -292,9 +292,9 @@ export default function HomeScreen() {
               />
               <CardContent>
                 <Text
-                  size="sm"
+                  size="xs"
                   variant="white"
-                  weight="medium"
+                  weight="regular"
                   style={{ opacity: 0.8 }}
                 >
                   Pengeluaran
@@ -330,10 +330,10 @@ export default function HomeScreen() {
               }}
             >
               <View>
-                <Text size="md" weight="bold" variant="foreground">
+                <Text size="sm" weight="bold" variant="foreground">
                   Status Unit
                 </Text>
-                <Text size="sm" weight="regular" variant="mutedForeground">
+                <Text size="xs" weight="regular" variant="mutedForeground">
                   Ringkasan unit kontrakan
                 </Text>
               </View>
@@ -358,7 +358,7 @@ export default function HomeScreen() {
                       backgroundColor: colors.primary[700],
                     }}
                   ></View>
-                  <Text size="sm" weight="regular" variant="foreground">
+                  <Text size="xs" weight="regular" variant="foreground">
                     Tersedia
                   </Text>
                 </View>
@@ -377,7 +377,7 @@ export default function HomeScreen() {
                       backgroundColor: colors.foreground,
                     }}
                   ></View>
-                  <Text size="sm" weight="regular" variant="foreground">
+                  <Text size="xs" weight="regular" variant="foreground">
                     Terisi
                   </Text>
                 </View>
@@ -400,7 +400,7 @@ export default function HomeScreen() {
                         room.status === "terisi" ? "mutedForeground" : "primary"
                       }
                       weight="bold"
-                      size="sm"
+                      size="xs"
                     >
                       {room.room_number}
                     </Text>
@@ -417,19 +417,19 @@ export default function HomeScreen() {
               style={{
                 flexDirection: "row",
                 justifyContent: "space-between",
-                alignItems: "center",
+                // alignItems: "center",
               }}
             >
               <View>
-                <Text size="md" weight="bold" variant="foreground">
+                <Text size="sm" weight="bold" variant="foreground">
                   Penyewa Terbaru
                 </Text>
-                <Text size="sm" weight="regular" variant="mutedForeground">
+                <Text size="xs" weight="regular" variant="mutedForeground">
                   Riwayat penyewa yang baru masuk
                 </Text>
               </View>
               <TouchableOpacity onPress={() => router.push("/contracts")}>
-                <Text size="sm" weight="semibold" variant="primary">
+                <Text size="xs" weight="regular" variant="primary">
                   Lihat semua
                 </Text>
               </TouchableOpacity>
@@ -452,7 +452,7 @@ export default function HomeScreen() {
                     color={colors.neutral[300]}
                   />
                   <Text
-                    size="sm"
+                    size="xs"
                     variant="mutedForeground"
                     style={{ marginTop: 8 }}
                   >
@@ -502,7 +502,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 16,
-    rowGap: 10,
+    rowGap: 8,
   },
   itemUnit: {
     padding: 16,
@@ -515,8 +515,8 @@ const styles = StyleSheet.create({
     width: "24%",
   },
   itemUnitEmpty: {
-    paddingHorizontal: 14,
-    paddingVertical: 16,
+    paddingHorizontal: 8,
+    paddingVertical: 10,
     backgroundColor: colors.primary[50],
     borderWidth: 1,
     borderColor: colors.primary[700],
@@ -526,8 +526,8 @@ const styles = StyleSheet.create({
     width: "24%",
   },
   itemUnitOccupied: {
-    paddingHorizontal: 14,
-    paddingVertical: 16,
+    paddingHorizontal: 8,
+    paddingVertical: 10,
     backgroundColor: colors.neutral[100],
     borderWidth: 1,
     borderColor: colors.neutral[400],

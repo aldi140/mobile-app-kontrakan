@@ -61,7 +61,7 @@ export default function LoginScreen() {
             </Text>
           </View>
 
-          <View style={{ gap: 16 }}>
+          <View>
             <View>
               <FloatingInput
                 label="Email"
@@ -84,13 +84,14 @@ export default function LoginScreen() {
               />
             </View>
 
-            <Button
-              title="Login"
-              variant="primary"
-              loading={isPending}
-              onPress={() => formik.handleSubmit()}
-            />
+
           </View>
+          <Button
+            title="Login"
+            variant="primary"
+            loading={isPending}
+            onPress={() => formik.handleSubmit()}
+          />
         </View>
       </View>
       <ErrorModal
@@ -114,13 +115,13 @@ const styles = StyleSheet.create({
     gap: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 18,
     color: colors.black,
     fontFamily: "Poppins_600SemiBold",
     textAlign: "center",
   },
   subtitle: {
-    fontSize: 16,
+    fontSize: 14,
     color: colors.neutral[500],
     fontFamily: "Poppins_400Regular",
     textAlign: "center",

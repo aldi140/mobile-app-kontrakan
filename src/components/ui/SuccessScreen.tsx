@@ -37,13 +37,13 @@ export const SuccessScreen = ({
         }}
       />
 
-      <Text variant="neutral" size="xl" weight="bold">
+      <Text variant="neutral" size="lg" weight="bold">
         {title}
       </Text>
 
       <Text
-        variant="muted"
-        size="sm"
+        variant="neutral"
+        size="md"
         style={{
           marginTop: 8,
           textAlign: "center",

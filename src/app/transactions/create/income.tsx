@@ -11,7 +11,6 @@ import { useCreatePayment } from "@/features/payments/hooks/useCreatePayment";
 import { useRooms } from "@/features/rooms/hooks/useRooms";
 import { Room } from "@/features/rooms/room.types";
 import { useErrorModal } from "@/hooks/useErrorModal";
-import { AppError } from "@/lib/AppError";
 import { formatDate, formatRupiah } from "@/utils/format";
 import { Ionicons } from "@expo/vector-icons";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
@@ -99,11 +98,11 @@ export default function CreateIncomeScreen() {
           <View style={{ flex: 1, padding: 16, gap: 16 }}>
             <View style={{ gap: 16 }}>
               <View>
-                <Text variant="foreground" size="md" weight="semibold">
+                <Text variant="foreground" size="sm" weight="semibold">
                   Pilih Kamar
                 </Text>
 
-                <Text variant="mutedForeground" size="sm">
+                <Text variant="mutedForeground" size="xs">
                   Pilih kamar untuk mencatat pemasukan
                 </Text>
               </View>
@@ -152,7 +151,7 @@ export default function CreateIncomeScreen() {
                       <View style={styles.roomInfo}>
                         <Text
                           variant="foreground"
-                          size="sm"
+                          size="xs"
                           weight="semibold"
                           numberOfLines={1}
                         >
@@ -161,7 +160,7 @@ export default function CreateIncomeScreen() {
 
                         <Text
                           variant="mutedForeground"
-                          size="sm"
+                          size="xs"
                           numberOfLines={1}
                         >
                           {room.rental_contract?.tenant?.name ?? "-"}
@@ -204,11 +203,11 @@ export default function CreateIncomeScreen() {
                     />
 
                     {formik.values.period_start ? (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         {formatDate(formik.values.period_start, "short")}
                       </Text>
                     ) : (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         Pilih Tanggal
                       </Text>
                     )}
@@ -216,7 +215,7 @@ export default function CreateIncomeScreen() {
 
                   {formik.errors.period_start &&
                     formik.touched.period_start && (
-                      <Text variant="danger" size="sm">
+                      <Text variant="danger" size="xs">
                         {formik.errors.period_start}
                       </Text>
                     )}
@@ -248,18 +247,18 @@ export default function CreateIncomeScreen() {
                     />
 
                     {formik.values.period_end ? (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         {formatDate(formik.values.period_end, "short")}
                       </Text>
                     ) : (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         Pilih Tanggal
                       </Text>
                     )}
                   </Pressable>
 
                   {formik.errors.period_end && formik.touched.period_end && (
-                    <Text variant="danger" size="sm">
+                    <Text variant="danger" size="xs">
                       {formik.errors.period_end}
                     </Text>
                   )}
@@ -327,9 +326,9 @@ export default function CreateIncomeScreen() {
             <Button
               variant="primaryGradient"
               title="Simpan"
-              size="lg"
+              size="md"
               onPress={formik.handleSubmit}
-              // disabled={formik.values.period_start === "" || formik.values.period_end === "" || !selectedRoom}
+            // disabled={formik.values.period_start === "" || formik.values.period_end === "" || !selectedRoom}
             />
           </View>
           <CalendarBottomSheet

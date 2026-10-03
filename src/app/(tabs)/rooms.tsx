@@ -69,9 +69,9 @@ export default function UnitScreen() {
         style={{
           backgroundColor: colors.white,
           borderRadius: 16,
-          gap: 16,
+          gap: 12,
           paddingHorizontal: 16,
-          paddingVertical: 12,
+          paddingVertical: 16,
           flexDirection: "column",
           borderBottomWidth: 1,
           borderBottomColor: colors.borderLight,
@@ -85,9 +85,9 @@ export default function UnitScreen() {
           <InputGroup
             icon="search-outline"
             placeholder="Cari kamar, nama penyewa"
-            onChangeText={setSearch}
+            // containerStyle={{ flex: 1 }}
             value={search}
-            containerStyle={{ flex: 1 }}
+            onChangeText={setSearch}
           />
         </View>
 
@@ -115,7 +115,7 @@ export default function UnitScreen() {
           onChange={(value) => setActiveTab(value as FilterValue)}
         />
       </View>
-      <View
+      {/* <View
         style={{
           paddingVertical: 24,
           paddingHorizontal: 16,
@@ -123,37 +123,38 @@ export default function UnitScreen() {
           flex: 1,
         }}
       >
-        <FlatList
-          data={rooms}
-          keyExtractor={(item) => item.id.toString()}
-          style={{ flex: 1 }}
-          renderItem={({ item }) => (
-            <RoomCard
-              room={item}
-              onCreateContract={() => handleOpenCreateContract(item)}
-              onDeleteContract={() => handleOpenEndContract(item)}
-              onCreatePayment={() => handleOpenCreatePayment(item)}
-            />
-          )}
-          contentContainerStyle={{
-            flexGrow: 1,
-            paddingBottom: 16,
-          }}
-          ListEmptyComponent={
-            isFetching ? (
-              <View style={{ gap: 16 }}>
-                <SkeletonRoomCard />
-                <SkeletonRoomCard />
-                <SkeletonRoomCard />
-              </View>
-            ) : (
-              <Text style={{ textAlign: "center", marginTop: 24 }}>
-                Tidak ada kamar
-              </Text>
-            )
-          }
-        />
-      </View>
+
+      </View> */}
+      <FlatList
+        data={rooms}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (
+          <RoomCard
+            room={item}
+            onCreateContract={() => handleOpenCreateContract(item)}
+            onDeleteContract={() => handleOpenEndContract(item)}
+            onCreatePayment={() => handleOpenCreatePayment(item)}
+          />
+        )}
+        contentContainerStyle={{
+          flexGrow: 1,
+          paddingVertical: 24,
+          paddingHorizontal: 16,
+        }}
+        ListEmptyComponent={
+          isFetching ? (
+            <View style={{ gap: 16 }}>
+              <SkeletonRoomCard />
+              <SkeletonRoomCard />
+              <SkeletonRoomCard />
+            </View>
+          ) : (
+            <Text style={{ textAlign: "center", marginTop: 24 }}>
+              Tidak ada kamar
+            </Text>
+          )
+        }
+      />
 
       <CreateContractBottomSheet
         ref={createContractRef}

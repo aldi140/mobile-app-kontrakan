@@ -29,19 +29,19 @@ const transactionTypeOptions: {
   label: string;
   value: TransactionFilter["type"];
 }[] = [
-  // {
-  //   label: "Semua",
-  //   value: "all",
-  // },
-  {
-    label: "Pemasukan",
-    value: "income",
-  },
-  {
-    label: "Pengeluaran",
-    value: "expense",
-  },
-];
+    // {
+    //   label: "Semua",
+    //   value: "all",
+    // },
+    {
+      label: "Pemasukan",
+      value: "income",
+    },
+    {
+      label: "Pengeluaran",
+      value: "expense",
+    },
+  ];
 
 const defaultFilter: TransactionFilter = {};
 
@@ -120,7 +120,7 @@ export const FilterSheetTransaction = forwardRef<
                 Filter
               </Text>
 
-              <Text variant="white" size="sm" weight="regular">
+              <Text variant="white" size="xs" weight="regular">
                 Tentukan filter untuk menampilkan transaksi
               </Text>
             </View>
@@ -134,7 +134,7 @@ export const FilterSheetTransaction = forwardRef<
           <View style={styles.content}>
             {/* TIPE TRANSAKSI */}
             <View style={styles.section}>
-              <Text variant="foreground" size="md" weight="semibold">
+              <Text variant="foreground" size="sm" weight="semibold">
                 Tipe Transaksi
               </Text>
 
@@ -155,7 +155,7 @@ export const FilterSheetTransaction = forwardRef<
                     >
                       <Text
                         variant={isActive ? "primary" : "neutral"}
-                        size="sm"
+                        size="xs"
                         weight={isActive ? "semibold" : "regular"}
                       >
                         {item.label}
@@ -168,7 +168,7 @@ export const FilterSheetTransaction = forwardRef<
 
             {/* PERIODE */}
             <View style={styles.section}>
-              <Text variant="foreground" size="md" weight="semibold">
+              <Text variant="foreground" size="sm" weight="semibold">
                 Periode Transaksi
               </Text>
 
@@ -186,11 +186,11 @@ export const FilterSheetTransaction = forwardRef<
                     />
 
                     {startDate ? (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         {formatDate(startDate, "short")}
                       </Text>
                     ) : (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         Pilih Tanggal
                       </Text>
                     )}
@@ -217,11 +217,11 @@ export const FilterSheetTransaction = forwardRef<
                     />
 
                     {endDate ? (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         {formatDate(endDate, "short")}
                       </Text>
                     ) : (
-                      <Text variant="neutral" size="sm">
+                      <Text variant="neutral" size="xs">
                         Pilih Tanggal
                       </Text>
                     )}
@@ -297,7 +297,6 @@ const styles = StyleSheet.create({
 
   header: {
     flexDirection: "row",
-    alignItems: "center",
     justifyContent: "space-between",
 
     paddingHorizontal: 16,
@@ -378,7 +377,7 @@ const styles = StyleSheet.create({
   action: {
     paddingHorizontal: 16,
     paddingTop: 24,
-    paddingBottom: 40,
+    paddingBottom: 48,
     position: "absolute",
     bottom: 0,
     flexDirection: "row",

@@ -130,10 +130,10 @@ export const CreatePaymentBottomSheet = forwardRef<
                   paddingBottom: 16,
                 }}
               >
-                <Text size="lg" weight="semibold">
+                <Text size="sm" weight="semibold">
                   Pilih Periode Tagihan
                 </Text>
-                <Text size="sm" weight="regular" variant="muted">
+                <Text size="xs" weight="regular" variant="muted">
                   Lanjutkan pembayaran sewa untuk periode tagihan
                 </Text>
               </View>
@@ -142,7 +142,8 @@ export const CreatePaymentBottomSheet = forwardRef<
                   flexDirection: "row",
                   alignItems: "flex-start",
                   justifyContent: "space-between",
-                  padding: 16,
+                  paddingHorizontal: 12,
+                  paddingVertical: 8,
                   borderRadius: 16,
                   backgroundColor: colors.primary[50],
                 }}
@@ -156,10 +157,10 @@ export const CreatePaymentBottomSheet = forwardRef<
                 >
                   <Ionicons name="bed" size={24} color={colors.primary[600]} />
                   <View>
-                    <Text variant="neutral" size="sm" weight="bold">
+                    <Text variant="neutral" size="xs" weight="bold">
                       {selectedRoom?.room_number}
                     </Text>
-                    <Text variant="neutral" size="md">
+                    <Text variant="neutral" size="xs">
                       {selectedRoom?.name}
                     </Text>
                   </View>
@@ -170,10 +171,10 @@ export const CreatePaymentBottomSheet = forwardRef<
                     alignItems: "flex-start",
                   }}
                 >
-                  <Text variant="neutral" size="sm" weight="semibold">
+                  <Text variant="neutral" size="xs" weight="semibold">
                     Tgl. Masuk
                   </Text>
-                  <Text variant="neutral" size="md">
+                  <Text variant="neutral" size="xs">
                     {formatDate(
                       selectedRoom?.rental_contract?.start_date,
                       "short",
@@ -186,12 +187,12 @@ export const CreatePaymentBottomSheet = forwardRef<
                     alignItems: "flex-start",
                   }}
                 >
-                  <Text variant="neutral" size="sm" weight="semibold">
+                  <Text variant="neutral" size="xs" weight="semibold">
                     Penyewa
                   </Text>
                   <Text
                     variant="neutral"
-                    size="md"
+                    size="xs"
                     numberOfLines={1}
                     ellipsizeMode="tail"
                     style={{
@@ -205,7 +206,7 @@ export const CreatePaymentBottomSheet = forwardRef<
 
               <View style={{ gap: 16 }}>
                 <View style={{ gap: 4 }}>
-                  <Text size="sm" weight="medium">
+                  <Text size="xs" weight="medium">
                     Periode Tagihan
                   </Text>
 
@@ -229,11 +230,11 @@ export const CreatePaymentBottomSheet = forwardRef<
                         />
 
                         {formik.values.period_start ? (
-                          <Text variant="neutral" size="sm">
+                          <Text variant="neutral" size="xs">
                             {formatDate(formik.values.period_start, "short")}
                           </Text>
                         ) : (
-                          <Text variant="neutral" size="sm">
+                          <Text variant="neutral" size="xs">
                             Pilih Tanggal
                           </Text>
                         )}
@@ -241,7 +242,7 @@ export const CreatePaymentBottomSheet = forwardRef<
 
                       {formik.errors.period_start &&
                         formik.touched.period_start && (
-                          <Text variant="danger" size="sm">
+                          <Text variant="danger" size="xs">
                             {formik.errors.period_start}
                           </Text>
                         )}
@@ -256,7 +257,7 @@ export const CreatePaymentBottomSheet = forwardRef<
                       }}
                     >
                       <Text variant="neutral" size="xs">
-                        sampai
+                        s/d
                       </Text>
                     </View>
 
@@ -273,11 +274,11 @@ export const CreatePaymentBottomSheet = forwardRef<
                         />
 
                         {formik.values.period_end ? (
-                          <Text variant="neutral" size="sm">
+                          <Text variant="neutral" size="xs">
                             {formatDate(formik.values.period_end, "short")}
                           </Text>
                         ) : (
-                          <Text variant="neutral" size="sm">
+                          <Text variant="neutral" size="xs">
                             Pilih Tanggal
                           </Text>
                         )}
@@ -285,7 +286,7 @@ export const CreatePaymentBottomSheet = forwardRef<
 
                       {formik.errors.period_end &&
                         formik.touched.period_end && (
-                          <Text variant="danger" size="sm">
+                          <Text variant="danger" size="xs">
                             {formik.errors.period_end}
                           </Text>
                         )}
@@ -309,16 +310,16 @@ export const CreatePaymentBottomSheet = forwardRef<
                     </Text>
                   </View> */}
                   <View style={{ gap: 4, flex: 1 }}>
-                    <Text size="sm" variant="mutedForeground" weight="regular">
+                    <Text size="xs" variant="mutedForeground" weight="regular">
                       Tagihan Bulanan
                     </Text>
-                    <Text size="lg" variant="primary" weight="semibold">
+                    <Text size="sm" variant="primary" weight="semibold">
                       {formatRupiah(selectedRoom?.monthly_price || 0)}
                     </Text>
                   </View>
                 </View>
                 <View style={{ gap: 4 }}>
-                  <Text size="sm" weight="regular">
+                  <Text size="xs" weight="regular">
                     Keterangan Tambahan (optional)
                   </Text>
                   <TextInput
@@ -349,10 +350,10 @@ export const CreatePaymentBottomSheet = forwardRef<
                 justifyContent: "space-between",
                 alignItems: "center",
                 gap: 16,
-                bottom: 40,
+                bottom: 50,
                 width: "100%",
                 paddingHorizontal: 16,
-                paddingTop: 24,
+                paddingTop: 16,
                 borderTopWidth: 1,
                 borderTopColor: colors.border,
                 backgroundColor: colors.white,
@@ -361,6 +362,7 @@ export const CreatePaymentBottomSheet = forwardRef<
               <Button
                 title="Tutup"
                 variant="outline"
+                size="sm"
                 onPress={onClose}
                 style={{
                   flex: 1,
@@ -370,6 +372,7 @@ export const CreatePaymentBottomSheet = forwardRef<
                 title="Simpan"
                 variant="primaryGradient"
                 onPress={() => formik.handleSubmit()}
+                size="sm"
                 style={{
                   flex: 1,
                 }}

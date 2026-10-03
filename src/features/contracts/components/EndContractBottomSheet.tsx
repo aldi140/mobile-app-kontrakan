@@ -70,9 +70,9 @@ export const EndContractBottomSheet = forwardRef<
       ref={ref}
       snapPoints={["75%"]}
       onDismiss={handleDismiss}
-      //   footer={
+    //   footer={
 
-      //   }
+    //   }
     >
       <View style={styles.sheetContent}>
         {isSuccess ? (
@@ -84,7 +84,8 @@ export const EndContractBottomSheet = forwardRef<
         ) : (
           <BottomSheetScrollView
             contentContainerStyle={{
-              padding: 16,
+              paddingHorizontal: 16,
+              paddingBottom: 160,
             }}
           >
             {selectedRoom && (
@@ -100,17 +101,17 @@ export const EndContractBottomSheet = forwardRef<
                   <Image
                     source={require("@/assets/images/confirm-illustration.png")}
                     style={{
-                      width: 200,
-                      height: 200,
+                      width: 150,
+                      height: 150,
                     }}
                   />
-                  <Text variant="neutral" size="lg" weight="bold">
+                  <Text variant="neutral" size="md" weight="bold">
                     Pemberhentian Kontrak
                   </Text>
 
                   <Text
                     variant="neutral"
-                    size="sm"
+                    size="xs"
                     style={{
                       marginTop: 8,
                     }}
@@ -132,9 +133,10 @@ export const EndContractBottomSheet = forwardRef<
                         flexDirection: "row",
                         alignItems: "flex-start",
                         justifyContent: "space-between",
-                        padding: 16,
                         borderRadius: 16,
                         backgroundColor: colors.primary[50],
+                        paddingHorizontal: 16,
+                        paddingVertical: 8,
                       }}
                     >
                       <View
@@ -150,10 +152,10 @@ export const EndContractBottomSheet = forwardRef<
                           color={colors.primary[600]}
                         />
                         <View>
-                          <Text variant="neutral" size="sm" weight="bold">
+                          <Text variant="neutral" size="xs" weight="semibold">
                             {selectedRoom?.room_number}
                           </Text>
-                          <Text variant="neutral" size="md">
+                          <Text variant="neutral" size="xs">
                             {selectedRoom?.name}
                           </Text>
                         </View>
@@ -164,10 +166,10 @@ export const EndContractBottomSheet = forwardRef<
                           alignItems: "flex-start",
                         }}
                       >
-                        <Text variant="neutral" size="sm" weight="semibold">
+                        <Text variant="neutral" size="xs" weight="semibold">
                           Tgl. Masuk
                         </Text>
-                        <Text variant="neutral" size="md">
+                        <Text variant="neutral" size="xs">
                           {formatDate(
                             selectedRoom?.rental_contract?.start_date,
                             "short",
@@ -180,12 +182,12 @@ export const EndContractBottomSheet = forwardRef<
                           alignItems: "flex-start",
                         }}
                       >
-                        <Text variant="neutral" size="sm" weight="semibold">
+                        <Text variant="neutral" size="xs" weight="semibold">
                           Penyewa
                         </Text>
                         <Text
                           variant="neutral"
-                          size="md"
+                          size="xs"
                           numberOfLines={1}
                           ellipsizeMode="tail"
                           style={{
@@ -241,6 +243,7 @@ export const EndContractBottomSheet = forwardRef<
               title="Tutup"
               variant="outline"
               onPress={onClose}
+              size="sm"
               style={{
                 flex: 1,
               }}
@@ -249,6 +252,7 @@ export const EndContractBottomSheet = forwardRef<
               title="Ya, akhiri"
               variant="primaryGradient"
               onPress={() => formik.handleSubmit()}
+              size="sm"
               style={{
                 flex: 1,
               }}
