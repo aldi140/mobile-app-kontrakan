@@ -92,7 +92,7 @@ export const TransactionCard = ({ transaction }: TransactionCardProps) => {
           >
             <Text
               size="xs"
-              weight="medium"
+              weight="regular"
               style={{
                 color: isIncome ? colors.success[600] : colors.error[600],
               }}

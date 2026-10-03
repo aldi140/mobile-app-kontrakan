@@ -6,7 +6,7 @@ import {
 
 import { colors } from "@/constants/color";
 import { forwardRef, useCallback } from "react";
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Calendar, DateData } from "react-native-calendars";
 import { Text } from "../atoms/Text";
 
@@ -49,9 +49,12 @@ export const CalendarBottomSheet = forwardRef<
       enableDynamicSizing={false}
       backdropComponent={renderBackdrop}
       onDismiss={onDismiss}
+      handleIndicatorStyle={styles.indicator}
+      style={styles.sheet}
+
     >
-      <View style={{ padding: 16 }}>
-        <Text size="lg" weight="semibold">
+      <View style={{ paddingHorizontal: 16 }}>
+        <Text size="sm" weight="semibold">
           Pilih Tanggal
         </Text>
 
@@ -61,16 +64,35 @@ export const CalendarBottomSheet = forwardRef<
           markedDates={
             value
               ? {
-                  [value]: {
-                    selected: true,
-                    disableTouchEvent: true,
-                    selectedColor: colors.primary[600],
-                  },
-                }
+                [value]: {
+                  selected: true,
+                  disableTouchEvent: true,
+                  selectedColor: colors.primary[600],
+                },
+              }
               : {}
           }
         />
       </View>
     </BottomSheetModal>
   );
+});
+
+
+const styles = StyleSheet.create({
+  sheet: {
+    elevation: 24,
+  },
+  background: {
+    backgroundColor: "#ffffff",
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
+  },
+  indicator: {
+    width: 40,
+    height: 3,
+    borderRadius: 10,
+    backgroundColor: "#bdbdbdff",
+  },
+
 });

@@ -52,7 +52,7 @@ export const Badge = ({ title, variant = "success", icon }: BadgeProps) => {
       style={{
         borderRadius: 16,
         paddingVertical: 4,
-        paddingHorizontal: 16,
+        paddingHorizontal: 10,
         backgroundColor: style.backgroundColor,
         flexDirection: "row",
         alignItems: "center",
@@ -60,7 +60,7 @@ export const Badge = ({ title, variant = "success", icon }: BadgeProps) => {
       }}
     >
       {icon && <Ionicons name={icon} size={16} color={style.color} />}
-      <Text style={{ color: style.color, fontSize: 14, fontWeight: "800" }}>
+      <Text style={{ color: style.color, fontSize: 10, fontWeight: "500" }}>
         {title}
       </Text>
     </View>

@@ -25,10 +25,10 @@ export const CreateTransactionSheet = forwardRef<
           paddingVertical: 8,
         }}
       >
-        <Text variant="neutral" size="lg" weight="semibold">
+        <Text variant="neutral" size="md" weight="semibold">
           Jenis Transaksi
         </Text>
-        <Text variant="muted" size="sm" weight="regular">
+        <Text variant="muted" size="xs" weight="regular">
           Tentukan pencatatan buku kas Kontrakan Hj Wiwi
         </Text>
       </View>
@@ -71,12 +71,12 @@ export const CreateTransactionSheet = forwardRef<
               />
             </View>
             <View style={{ flex: 1 }}>
-              <Text variant="neutral" weight="semibold">
+              <Text variant="neutral" weight="semibold" size="sm">
                 Pemasukan
               </Text>
               <Text
                 variant="mutedForeground"
-                size="sm"
+                size="xs"
                 style={{
                   flexShrink: 1,
                 }}
@@ -129,12 +129,12 @@ export const CreateTransactionSheet = forwardRef<
               />
             </View>
             <View style={{ flex: 1 }}>
-              <Text variant="neutral" weight="semibold">
+              <Text variant="neutral" weight="semibold" size="sm">
                 Pengeluaran
               </Text>
               <Text
                 variant="mutedForeground"
-                size="sm"
+                size="xs"
                 style={{
                   flexShrink: 1,
                 }}

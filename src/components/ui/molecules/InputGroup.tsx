@@ -27,6 +27,7 @@ export const InputGroup = ({
         alignItems: "center",
         paddingHorizontal: 12,
         borderWidth: 1,
+        minHeight: 40,
         flex: 1,
         gap: 8,
         borderColor: colors.border,
@@ -34,13 +35,13 @@ export const InputGroup = ({
         backgroundColor: colors.white,
       }}
     >
-      {icon && <Ionicons name={icon} size={20} color={colors.muted} />}
+      {icon && <Ionicons name={icon} size={18} color={colors.muted} />}
 
       {prefix && (
         <Text
           style={{
             color: colors.neutral[700],
-            fontSize: 14,
+            fontSize: 12,
             fontWeight: "bold",
           }}
         >
@@ -49,9 +50,13 @@ export const InputGroup = ({
       )}
 
       <TextInput
+        // containerStyle={{
+        //   flex: 1,
+
+        // }}
         style={{
           borderWidth: 0,
-          paddingHorizontal: 0,
+          padding: 0
         }}
         {...props}
         placeholder={placeholder}

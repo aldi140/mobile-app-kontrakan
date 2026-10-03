@@ -52,7 +52,7 @@ export const FloatingInput = ({
     }),
     fontSize: animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [14, 12],
+      outputRange: [12, 10],
     }),
     color: colors.mutedForeground,
   };
@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 16,
-    fontSize: 16,
+    fontSize: 12,
     color: colors.foreground,
     fontFamily: "Poppins_500Medium",
   },
   errorText: {
     color: colors.error?.[600] ?? "red",
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: "Poppins_700Bold",
     marginTop: 4,
     marginLeft: 4,

@@ -14,7 +14,7 @@ const TabLayout = () => {
           borderTopWidth: 1,
         },
         tabBarLabelStyle: {
-          fontSize: 12,
+          fontSize: 10,
         },
       }}
     >

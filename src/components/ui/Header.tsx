@@ -63,16 +63,14 @@ export const Header = ({
         )}
         <View>
           <Text
-            style={{
-              color: colors.foreground,
-              fontSize: 18,
-              fontWeight: "bold",
-            }}
+            variant="neutral"
+            size="sm"
+            weight="semibold"
           >
             {title}
           </Text>
           {description && (
-            <Text style={{ color: colors.mutedForeground, fontSize: 12 }}>
+            <Text variant="muted" size="xs">
               {description}
             </Text>
           )}

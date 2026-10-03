@@ -98,7 +98,7 @@ export const CreateContractBottomSheet = forwardRef<
             }}
           >
             {selectedRoom && (
-              <View style={{ gap: 24 }}>
+              <View style={{ gap: 16 }}>
                 <View
                   style={{
                     flexDirection: "row",
@@ -106,13 +106,13 @@ export const CreateContractBottomSheet = forwardRef<
                     alignItems: "center",
                   }}
                 >
-                  <Text variant="neutral" size="lg" weight="bold">
+                  <Text variant="neutral" size="sm" weight="semibold">
                     Buat Kontrak
                   </Text>
                   <TouchableOpacity onPress={onClose}>
                     <Ionicons
                       name="close-outline"
-                      size={30}
+                      size={20}
                       color={colors.mutedForeground}
                     />
                   </TouchableOpacity>
@@ -123,7 +123,7 @@ export const CreateContractBottomSheet = forwardRef<
                     flexDirection: "row",
                     alignItems: "flex-end",
                     justifyContent: "space-between",
-                    padding: 12,
+                    paddingVertical: 12,
                     borderBottomWidth: 1,
                     borderBottomColor: colors.border,
                   }}
@@ -151,25 +151,25 @@ export const CreateContractBottomSheet = forwardRef<
                       />
                     </View>
                     <View>
-                      <Text variant="neutral" size="sm" weight="bold">
+                      <Text variant="neutral" size="xs" weight="semibold">
                         {selectedRoom.room_number}
                       </Text>
-                      <Text variant="neutral" size="md">
+                      <Text variant="neutral" size="sm" weight="semibold">
                         {selectedRoom.name}
                       </Text>
                     </View>
                   </View>
                   <View>
-                    <Text variant="neutral" size="lg" weight="bold">
+                    <Text variant="neutral" size="md" weight="semibold">
                       {formatRupiah(selectedRoom.monthly_price)}
                     </Text>
                   </View>
                 </View>
                 <View>
-                  <Text variant="neutral" size="sm" weight="medium">
+                  <Text variant="neutral" size="xs" weight="medium">
                     Tanggal Sewa
                   </Text>
-                  <Text variant="neutral" size="md" weight="bold">
+                  <Text variant="neutral" size="sm" weight="semibold">
                     {formatDate(today, "long")}
                   </Text>
                 </View>

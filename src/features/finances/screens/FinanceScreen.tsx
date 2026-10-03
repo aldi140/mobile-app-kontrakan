@@ -85,7 +85,7 @@ export const FinanceScreen = () => {
           labelWidth: 46,
           labelTextStyle: {
             color: colors.mutedForeground,
-            fontSize: 12,
+            fontSize: 10,
           },
         },
         {
@@ -112,14 +112,14 @@ export const FinanceScreen = () => {
           <Card style={styles.card_balance}>
             <CardContent>
               <Text
-                size="sm"
+                size="xs"
                 variant="white"
                 weight="medium"
                 style={{ opacity: 0.8 }}
               >
                 Saldo Bersih
               </Text>
-              <Text size="2xl" weight="bold" variant="white">
+              <Text size="lg" weight="bold" variant="white">
                 {formatRupiah(data?.balance)}
               </Text>
               <View
@@ -135,54 +135,74 @@ export const FinanceScreen = () => {
                     flexDirection: "row",
                     alignItems: "center",
                     gap: 4,
+                    marginTop: 8,
                   }}
                 >
-                  <Ionicons
-                    name={
-                      data?.comparison.balance.trend === "up"
-                        ? "trending-up"
-                        : data?.comparison.balance.trend === "down"
-                          ? "trending-down"
-                          : "swap-horizontal-outline"
-                    }
-                    size={18}
-                    color={
-                      data?.comparison.balance.trend === "up"
-                        ? colors.success[400]
-                        : data?.comparison.balance.trend === "down"
-                          ? colors.error[400]
-                          : colors.neutral[100]
-                    }
-                  />
-                  <Text
-                    size="sm"
-                    weight="semibold"
-                    variant="white"
+                  <View
                     style={{
-                      color:
-                        data?.comparison.balance.trend === "up"
-                          ? colors.success[400]
-                          : data?.comparison.balance.trend === "down"
-                            ? colors.error[400]
-                            : colors.neutral[100],
+                      flexDirection: "row",
+                      alignItems: "center",
+                      gap: 4,
                     }}
                   >
-                    {data?.comparison.balance.trend === "up"
-                      ? "+"
-                      : data?.comparison.balance.trend === "down"
-                        ? "-"
-                        : ""}{" "}
-                    {data?.comparison.balance.percentage}%
-                  </Text>
+                    {data?.comparison.balance.percentage !== null && (
+                      <Ionicons
+                        name={
+                          data?.comparison.balance.trend === "up"
+                            ? "trending-up"
+                            : data?.comparison.balance.trend === "down"
+                              ? "trending-down"
+                              : "swap-horizontal-outline"
+                        }
+                        size={18}
+                        color={
+                          data?.comparison.balance.trend === "up"
+                            ? colors.success[400]
+                            : data?.summary.comparison.balance.trend === "down"
+                              ? colors.error[400]
+                              : colors.neutral[100]
+                        }
+                      />
+                    )}
+
+                    {data?.comparison.balance.percentage !== null && (
+                      <Text
+                        size="xs"
+                        weight="semibold"
+                        variant="primary"
+                        style={{
+                          color:
+                            data?.comparison.balance.trend === "up"
+                              ? colors.success[400]
+                              : data?.comparison.balance.trend === "down"
+                                ? colors.error[400]
+                                : colors.neutral[100],
+                        }}
+                      >
+                        {data?.comparison.balance.trend === "up"
+                          ? "+"
+                          : data?.comparison.balance.trend === "down"
+                            ? "-"
+                            : ""}{" "}
+                        {data?.comparison.balance.percentage}%
+                      </Text>
+                    )}
+                  </View>
+                  {data?.comparison.balance.percentage !== null ? (
+                    <Text size="xs" variant="white" style={{ opacity: 0.8 }}>
+                      dari bulan lalu
+                    </Text>
+                  ) : (
+                    <Text size="sm" variant="white" style={{ opacity: 0.8 }}>
+                      Tidak ada data bulan lalu
+                    </Text>
+                  )}
                 </View>
-                <Text size="sm" variant="white" style={{ opacity: 0.8 }}>
-                  dari bulan lalu
-                </Text>
               </View>
             </CardContent>
           </Card>
           <Card style={styles.card_transaction}>
-            <CardContent style={{ gap: 16 }}>
+            <CardContent style={{ gap: 12 }}>
               <View
                 style={{ gap: 16, flexDirection: "row", alignItems: "center" }}
               >
@@ -190,21 +210,21 @@ export const FinanceScreen = () => {
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
-                    padding: 12,
                     backgroundColor: colors.success[50],
-                    width: 48,
-                    height: 48,
+                    width: 44,
+                    height: 44,
                     borderRadius: 8,
+                    justifyContent: "center",
                   }}
                 >
                   <Ionicons
                     name="arrow-down-outline"
-                    size={24}
+                    size={20}
                     color={colors.success[600]}
                   />
                 </View>
                 <View>
-                  <Text size="sm" weight="medium" variant="mutedForeground">
+                  <Text size="xs" weight="regular" variant="mutedForeground">
                     Pemasukan
                   </Text>
                   <Text
@@ -230,21 +250,21 @@ export const FinanceScreen = () => {
                   style={{
                     flexDirection: "row",
                     alignItems: "center",
-                    padding: 12,
                     backgroundColor: colors.error[50],
-                    width: 48,
-                    height: 48,
+                    width: 44,
+                    height: 44,
                     borderRadius: 8,
+                    justifyContent: "center",
                   }}
                 >
                   <Ionicons
                     name="arrow-up-outline"
-                    size={24}
+                    size={20}
                     color={colors.error[600]}
                   />
                 </View>
                 <View>
-                  <Text size="sm" weight="medium" variant="mutedForeground">
+                  <Text size="xs" weight="regular" variant="mutedForeground">
                     Pengeluaran
                   </Text>
                   <Text
@@ -329,11 +349,11 @@ export const FinanceScreen = () => {
                 justifyContent: "space-between",
               }}
             >
-              <Text size="md" weight="medium" variant="foreground">
+              <Text size="sm" weight="medium" variant="foreground">
                 Transaksi Terbaru
               </Text>
               <Link href="/transactions" asChild>
-                <Text size="sm" weight="semibold" variant="primary">
+                <Text size="xs" weight="regular" variant="primary">
                   Lihat Semua
                 </Text>
               </Link>
@@ -354,7 +374,7 @@ export const FinanceScreen = () => {
         >
           <Button
             title="Tambah Transaksi"
-            size="lg"
+            size="md"
             variant="primaryGradient"
             icon="add-outline"
             onPress={handleOpenCreateTransaction}
@@ -393,8 +413,8 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   legendDot: {
-    width: 10,
-    height: 10,
+    width: 6,
+    height: 6,
     borderRadius: 5,
   },
   card_recent_activities: {

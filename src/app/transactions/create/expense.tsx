@@ -134,7 +134,7 @@ export default function CreateExpenseScreen() {
                 alignItems: "center",
               }}
             >
-              <Text variant="neutral" size="md" weight="bold">
+              <Text variant="neutral" size="sm" weight="bold">
                 Pilih Kategori Pengeluaran
               </Text>
               <TouchableOpacity
@@ -146,7 +146,7 @@ export default function CreateExpenseScreen() {
                   });
                 }}
               >
-                <Text style={{ color: colors.primary[600] }}>+ Kategori</Text>
+                {/* <Text style={{ color: colors.primary[600] }}>+ Kategori</Text> */}
               </TouchableOpacity>
             </View>
 
@@ -180,7 +180,7 @@ export default function CreateExpenseScreen() {
                     <Text
                       style={[
                         selectedCategory === item.id && styles.badgeActiveText,
-                        { fontSize: 14, fontWeight: "600" },
+                        { fontSize: 12, fontWeight: "600" },
                       ]}
                     >
                       {item.name}
@@ -197,7 +197,7 @@ export default function CreateExpenseScreen() {
             </View>
 
             <View style={{ flexDirection: "column", gap: 8 }}>
-              <Text variant="foreground" size="sm" weight="semibold">
+              <Text variant="foreground" size="xs" weight="medium">
                 Nominal Transaksi
               </Text>
               <InputGroup
@@ -217,7 +217,7 @@ export default function CreateExpenseScreen() {
               )}
             </View>
             <View style={{ flexDirection: "column", gap: 8 }}>
-              <Text variant="foreground" size="sm" weight="semibold">
+              <Text variant="foreground" size="xs" weight="medium">
                 Tanggal Transaksi
               </Text>
               <Pressable
@@ -234,7 +234,16 @@ export default function CreateExpenseScreen() {
                   alignItems: "center",
                 }}
               >
-                <Text style={{ color: colors.foreground }}>
+                <Text
+                  style={{
+                    color: formik.values.expense_date
+                      ? colors.foreground
+                      : colors.muted,
+                  }}
+                  variant={formik.values.expense_date ? "foreground" : "muted"}
+                  size="xs"
+                  weight="regular"
+                >
                   {formik.values.expense_date
                     ? formatDate(formik.values.expense_date, "short")
                     : "Pilih Tanggal"}
@@ -248,7 +257,7 @@ export default function CreateExpenseScreen() {
               )}
             </View>
             <View style={{ gap: 4 }}>
-              <Text variant="foreground" size="sm" weight="semibold">
+              <Text variant="foreground" size="xs" weight="medium">
                 Keterangan Tambahan (optional)
               </Text>
               <TextInput

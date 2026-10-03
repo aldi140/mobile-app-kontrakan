@@ -56,26 +56,28 @@ export default function FinanceTransactionScreen() {
       }}
     >
       <Header title="Transaksi" description="Daftar Transaksi" showBack />
-      <View style={{ gap: 16, marginTop: 16 }}>
+      <View style={{ gap: 16, padding: 16 }}>
         <View
           style={{
-            paddingHorizontal: 16,
+            // paddingHorizontal: 16,
             flexDirection: "row",
-            gap: 16,
+            gap: 8,
+            alignItems: "center"
           }}
         >
           <InputGroup
             icon="search-outline"
-            placeholder="Cari berdasarkan kamar, kategori"
-            containerStyle={{ flex: 1 }}
+            placeholder="Cari kamar, nama penyewa"
+            // containerStyle={{ flex: 1 }}
             value={search}
             onChangeText={setSearch}
           />
           <Button
             icon="filter-outline"
             variant="outline"
-            size="lg"
             onPress={handleOpenFilter}
+            size="lg"
+
           >
             {Object.keys(filters).length > 0 && (
               <View
@@ -161,7 +163,7 @@ export default function FinanceTransactionScreen() {
             keyExtractor={(item) => `${item.type}-${item.id}`}
             renderItem={({ item }) => <TransactionCard transaction={item} />}
             contentContainerStyle={{
-              paddingHorizontal: 16,
+
               paddingTop: Object.keys(filters).length > 0 ? 0 : 16,
               gap: 12,
             }}
@@ -186,7 +188,7 @@ export default function FinanceTransactionScreen() {
                 }}
               >
                 <Text variant="neutral" size="sm">
-                  Belum ada s
+                  Belum ada transaksi
                 </Text>
               </View>
             }
