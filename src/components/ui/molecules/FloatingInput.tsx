@@ -1,5 +1,5 @@
 import { colors } from "@/constants/color";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
   Animated,
   TextInput as RNTextInput,
@@ -23,7 +23,7 @@ export const FloatingInput = ({
   ...props
 }: FloatingInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
-  const animatedValue = useRef(new Animated.Value(value ? 1 : 0)).current;
+  const [animatedValue] = useState(() => new Animated.Value(value ? 1 : 0));
 
   const handleFocus = (e: any) => {
     setIsFocused(true);

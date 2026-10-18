@@ -290,6 +290,8 @@ export const FilterSheetTransaction = forwardRef<
   );
 });
 
+FilterSheetTransaction.displayName = "FilterSheetTransaction";
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

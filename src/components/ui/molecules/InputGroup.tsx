@@ -29,10 +29,12 @@ export const InputGroup = ({
         borderWidth: 1,
         minHeight: 40,
         flex: 1,
+        borderStyle: "solid",
         gap: 8,
         borderColor: colors.border,
         borderRadius: 10,
         backgroundColor: colors.white,
+        overflow: "hidden",
       }}
     >
       {icon && <Ionicons name={icon} size={18} color={colors.muted} />}
@@ -50,13 +52,9 @@ export const InputGroup = ({
       )}
 
       <TextInput
-        // containerStyle={{
-        //   flex: 1,
-
-        // }}
         style={{
+          padding: 0,
           borderWidth: 0,
-          padding: 0
         }}
         {...props}
         placeholder={placeholder}

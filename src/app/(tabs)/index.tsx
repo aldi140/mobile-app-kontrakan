@@ -8,9 +8,9 @@ import { formatDate, formatRupiah } from "@/utils/format";
 import { Ionicons } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
-import { router } from "expo-router";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { Link } from "expo-router";
+import { StyleSheet, View } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const TenantCard = ({ tenant }: { tenant: any }) => {
@@ -142,7 +142,7 @@ export default function HomeScreen() {
               }}
             >
               <Image
-                source={require("@/assets/images/logo-app.svg")}
+                source={require("@/assets/images/logo-app.png")}
                 style={{
                   width: 40,
                   height: 40,
@@ -428,23 +428,22 @@ export default function HomeScreen() {
                   Riwayat penyewa yang baru masuk
                 </Text>
               </View>
-              <TouchableOpacity onPress={() => router.push("/contracts")}>
+              <Link href="/tenants">
                 <Text size="xs" weight="regular" variant="primary">
-                  Lihat semua
+                  Lihat Semua
                 </Text>
-              </TouchableOpacity>
+              </Link>
             </View>
 
-            <FlatList
-              data={data?.tenant}
-              keyExtractor={(item, index) =>
-                item.id ? item.id.toString() : index.toString()
-              }
-              scrollEnabled={false}
-              showsVerticalScrollIndicator={false}
-              contentContainerStyle={{ gap: 10, marginTop: 12 }}
-              renderItem={({ item }) => <TenantCard tenant={item} />}
-              ListEmptyComponent={
+            <View style={{ gap: 10, marginTop: 12 }}>
+              {data?.tenant && data.tenant.length > 0 ? (
+                data.tenant.map((item: any, index: number) => (
+                  <TenantCard
+                    key={item.id ? item.id.toString() : index.toString()}
+                    tenant={item}
+                  />
+                ))
+              ) : (
                 <View style={styles.emptyContainer}>
                   <Ionicons
                     name="people-outline"
@@ -459,8 +458,8 @@ export default function HomeScreen() {
                     Belum ada data penyewa terbaru
                   </Text>
                 </View>
-              }
-            />
+              )}
+            </View>
           </View>
         </View>
       </ScrollView>

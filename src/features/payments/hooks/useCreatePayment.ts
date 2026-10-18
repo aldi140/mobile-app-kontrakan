@@ -8,7 +8,15 @@ export const useCreatePayment = () => {
     mutationFn: (payload: CreatePaymentParams) => createPayment(payload),
     onSuccess: () => {
       queryClient.invalidateQueries({
+        queryKey: ["dashboard"],
+      });
+
+      queryClient.invalidateQueries({
         queryKey: ["payments"],
+      });
+
+      queryClient.invalidateQueries({
+        queryKey: ["finance"],
       });
     },
   });

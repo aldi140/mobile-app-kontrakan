@@ -17,7 +17,7 @@ import { BottomSheetModal } from "@gorhom/bottom-sheet";
 import { router } from "expo-router";
 import { useFormik } from "formik";
 import { useRef, useState } from "react";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import * as Yup from "yup";
 
@@ -95,7 +95,13 @@ export default function CreateIncomeScreen() {
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
           <Header title="Tambah Pemasukan" showBack />
           {isPending && <LoadingOverlay />}
-          <View style={{ flex: 1, padding: 16, gap: 16 }}>
+          <ScrollView
+            style={{ flex: 1 }}
+            contentContainerStyle={{
+              padding: 16,
+              gap: 16,
+              paddingBottom: 32,
+            }}>
             <View style={{ gap: 16 }}>
               <View>
                 <Text variant="foreground" size="sm" weight="semibold">
@@ -330,7 +336,7 @@ export default function CreateIncomeScreen() {
               onPress={formik.handleSubmit}
             // disabled={formik.values.period_start === "" || formik.values.period_end === "" || !selectedRoom}
             />
-          </View>
+          </ScrollView>
           <CalendarBottomSheet
             ref={calendarRef}
             value={

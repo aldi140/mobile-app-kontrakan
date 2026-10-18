@@ -154,3 +154,5 @@ export const CreateTransactionSheet = forwardRef<
     </AppBottomSheet>
   );
 });
+
+CreateTransactionSheet.displayName = "CreateTransactionSheet";
