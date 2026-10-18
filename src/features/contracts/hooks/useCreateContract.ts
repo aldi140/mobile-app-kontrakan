@@ -9,6 +9,8 @@ export const useCreateContract = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["contracts"] });
       queryClient.invalidateQueries({ queryKey: ["rooms"] });
+      queryClient.invalidateQueries({ queryKey: ["tenants"] });
+      queryClient.invalidateQueries({ queryKey: ["dashboard"] });
     },
   });
 };

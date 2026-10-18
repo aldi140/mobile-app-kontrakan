@@ -78,6 +78,8 @@ export const CalendarBottomSheet = forwardRef<
   );
 });
 
+CalendarBottomSheet.displayName = "CalendarBottomSheet";
+
 
 const styles = StyleSheet.create({
   sheet: {

@@ -145,50 +145,50 @@ export const FinanceScreen = () => {
                       gap: 4,
                     }}
                   >
-                    {data?.comparison.balance.percentage !== null && (
+                    {data?.comparison?.balance.percentage !== null && (
                       <Ionicons
                         name={
-                          data?.comparison.balance.trend === "up"
+                          data?.comparison?.balance.trend === "up"
                             ? "trending-up"
-                            : data?.comparison.balance.trend === "down"
+                            : data?.comparison?.balance.trend === "down"
                               ? "trending-down"
                               : "swap-horizontal-outline"
                         }
                         size={18}
                         color={
-                          data?.comparison.balance.trend === "up"
+                          data?.comparison?.balance.trend === "up"
                             ? colors.success[400]
-                            : data?.summary.comparison.balance.trend === "down"
+                            : data?.comparison?.balance.trend === "down"
                               ? colors.error[400]
                               : colors.neutral[100]
                         }
                       />
                     )}
 
-                    {data?.comparison.balance.percentage !== null && (
+                    {data?.comparison?.balance.percentage !== null && (
                       <Text
                         size="xs"
                         weight="semibold"
                         variant="primary"
                         style={{
                           color:
-                            data?.comparison.balance.trend === "up"
+                            data?.comparison?.balance.trend === "up"
                               ? colors.success[400]
-                              : data?.comparison.balance.trend === "down"
+                              : data?.comparison?.balance.trend === "down"
                                 ? colors.error[400]
                                 : colors.neutral[100],
                         }}
                       >
-                        {data?.comparison.balance.trend === "up"
+                        {data?.comparison?.balance.trend === "up"
                           ? "+"
-                          : data?.comparison.balance.trend === "down"
+                          : data?.comparison?.balance.trend === "down"
                             ? "-"
                             : ""}{" "}
-                        {data?.comparison.balance.percentage}%
+                        {data?.comparison?.balance.percentage}%
                       </Text>
                     )}
                   </View>
-                  {data?.comparison.balance.percentage !== null ? (
+                  {data?.comparison?.balance.percentage !== null ? (
                     <Text size="xs" variant="white" style={{ opacity: 0.8 }}>
                       dari bulan lalu
                     </Text>
@@ -278,12 +278,12 @@ export const FinanceScreen = () => {
               </View>
             </CardContent>
           </Card>
-          <Button
+          {/* <Button
             title="Laporan"
             variant="outlineBlue"
             size="md"
             icon="download-outline"
-          />
+          /> */}
           <Card style={styles.card_transaction}>
             <CardHeader>
               <CardTitle>Tren Keuangan (4 Bulan Terakhir)</CardTitle>
@@ -352,7 +352,7 @@ export const FinanceScreen = () => {
               <Text size="sm" weight="medium" variant="foreground">
                 Transaksi Terbaru
               </Text>
-              <Link href="/transactions" asChild>
+              <Link href="/transactions">
                 <Text size="xs" weight="regular" variant="primary">
                   Lihat Semua
                 </Text>

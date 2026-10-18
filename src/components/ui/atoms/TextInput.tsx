@@ -23,7 +23,7 @@ export const TextInput = ({
   ...props
 }: TextInputProps) => {
   return (
-    <View style={[{ gap: 4 }, containerStyle]}>
+    <View style={[{ gap: 4 }, containerStyle, { flex: 1 }]}>
       {label && (
         <Text variant="neutral" size="xs" weight="medium">
           {label}{" "}
@@ -48,6 +48,7 @@ export const TextInput = ({
             borderRadius: 8,
             padding: 12,
             fontSize: 12,
+            // flex: 1,
             color: colors.black,
             fontFamily: "Poppins_400Regular",
             backgroundColor:

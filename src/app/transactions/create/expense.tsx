@@ -20,6 +20,7 @@ import { useEffect, useRef, useState } from "react";
 import {
   Animated,
   Pressable,
+  ScrollView,
   StyleSheet,
   TouchableOpacity,
   View,
@@ -36,7 +37,7 @@ const expenseSchema = Yup.object({
 });
 
 const SkeletonBadgeCategory = () => {
-  const opacity = useRef(new Animated.Value(0.4)).current;
+  const [opacity] = useState(() => new Animated.Value(0.4));
 
   useEffect(() => {
     const animation = Animated.loop(
@@ -124,8 +125,13 @@ export default function CreateExpenseScreen() {
       ) : (
         <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
           <Header title="Tambah Pengeluaran" showBack />
-          <View
-            style={{ flex: 1, padding: 16, flexDirection: "column", gap: 16 }}
+          <ScrollView
+            style={{ flex: 1 }}
+            contentContainerStyle={{
+              padding: 16,
+              gap: 16,
+              paddingBottom: 32,
+            }}
           >
             <View
               style={{
@@ -282,7 +288,7 @@ export default function CreateExpenseScreen() {
               variant="primaryGradient"
               onPress={formik.handleSubmit}
             />
-          </View>
+          </ScrollView>
           {isPending && <LoadingOverlay />}
 
           <CalendarBottomSheet

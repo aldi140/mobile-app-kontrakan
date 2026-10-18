@@ -419,6 +419,8 @@ export const CreatePaymentBottomSheet = forwardRef<
   );
 });
 
+CreatePaymentBottomSheet.displayName = "CreatePaymentBottomSheet";
+
 const styles = StyleSheet.create({
   container: {
     gap: 16,

@@ -3,7 +3,7 @@ import { getFinances } from "../api/getFinance";
 
 export const useFinance = (period: string) => {
   return useQuery({
-    queryKey: ["finance", period],
+    queryKey: ["finance"],
     queryFn: () => getFinances(period),
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 * 5,

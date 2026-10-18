@@ -19,7 +19,7 @@ interface ButtonProps {
   style?: StyleProp<ViewStyle>;
   icon?: IconName;
   loading?: boolean;
-  disable?: boolean;
+  disabled?: boolean;
   onPress?: () => void;
 }
 type Variant = keyof typeof buttonVariants;
@@ -128,7 +128,7 @@ export const Button = ({
 }: ButtonProps & { children?: React.ReactNode }) => {
   const variantStyle = buttonVariants[variant];
   const sizeStyle = buttonSizes[size];
-  const isDisabled = props.disable || props.loading;
+  const isDisabled = props.disabled || props.loading;
 
   const content = (pressed: boolean) => (
     <>

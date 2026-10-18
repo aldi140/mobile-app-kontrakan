@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "KEW",
-    "slug": "kew",
+    "slug": "fe-app-kontrakan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -12,10 +12,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "backgroundColor": "#fff",
-        // "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/logo-app.svg",
-        // "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "backgroundColor": "#ffffff",
+        "foregroundImage": "./assets/images/logo-app.png"
       },
       "predictiveBackGestureEnabled": false,
       "package": "com.aldiagng.kew"
@@ -29,13 +27,15 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/logo-app.svg",
-          "imageWidth": 76
+          "backgroundColor": "#ffffff",
+          "image": "./assets/images/logo-app.png",
+          "imageWidth": 250
         }
       ],
       "expo-font",
-      "@react-native-community/datetimepicker"
+      "@react-native-community/datetimepicker",
+      "expo-image",
+      "expo-web-browser"
     ],
     "experiments": {
       "typedRoutes": true,
