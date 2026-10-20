@@ -10,10 +10,7 @@ import {
 } from "@/features/transactions/components/FilterSheetTransaction";
 import { TransactionCard } from "@/features/transactions/components/TransactionsCard";
 import { useTransactions } from "@/features/transactions/hooks/useTransactions";
-import {
-  TransactionType,
-  transactionTypeLabel,
-} from "@/features/transactions/transaction.type";
+import { TransactionType, transactionTypeLabel } from "@/features/transactions/transaction.type";
 import { useDebounce } from "@/hooks/useDebounce";
 import { formatDate } from "@/utils/format";
 import { BottomSheetModal } from "@gorhom/bottom-sheet";
@@ -22,7 +19,7 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { ActivityIndicator, FlatList, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function FinanceTransactionScreen() {
+export default function TransactionScreen() {
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 500);
   const [filters, setFilters] = useState<TransactionFilter>({});
@@ -56,17 +53,17 @@ export default function FinanceTransactionScreen() {
       }}
     >
       <Header title="Transaksi" description="Daftar Transaksi" showBack />
-      <View style={{ gap: 16, marginTop: 16 }}>
+      <View style={{ flex: 1, gap: 16, padding: 16 }}>
         <View
           style={{
-            paddingHorizontal: 16,
             flexDirection: "row",
-            gap: 16,
+            gap: 8,
+            alignItems: "center"
           }}
         >
           <InputGroup
             icon="search-outline"
-            placeholder="Cari berdasarkan kamar, kategori"
+            placeholder="Cari kamar, nama penyewa"
             containerStyle={{ flex: 1 }}
             value={search}
             onChangeText={setSearch}
@@ -74,8 +71,9 @@ export default function FinanceTransactionScreen() {
           <Button
             icon="filter-outline"
             variant="outline"
-            size="lg"
             onPress={handleOpenFilter}
+            size="lg"
+
           >
             {Object.keys(filters).length > 0 && (
               <View
@@ -139,7 +137,7 @@ export default function FinanceTransactionScreen() {
                     ? transactionTypeLabel[value as TransactionType]
                     : formatDate(value, "long");
                 return (
-                  <Badge key={index} title={`${label}`} variant="primary" />
+                  <Badge key={index} title={`${label}`} variant="outline" />
                 );
               })}
             </View>
@@ -161,7 +159,7 @@ export default function FinanceTransactionScreen() {
             keyExtractor={(item) => `${item.type}-${item.id}`}
             renderItem={({ item }) => <TransactionCard transaction={item} />}
             contentContainerStyle={{
-              paddingHorizontal: 16,
+
               paddingTop: Object.keys(filters).length > 0 ? 0 : 16,
               gap: 12,
             }}
@@ -186,7 +184,7 @@ export default function FinanceTransactionScreen() {
                 }}
               >
                 <Text variant="neutral" size="sm">
-                  Belum ada s
+                  Belum ada transaksi
                 </Text>
               </View>
             }

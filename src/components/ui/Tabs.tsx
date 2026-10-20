@@ -67,8 +67,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 4,
     minWidth: 52,
-    paddingHorizontal: 18,
-    paddingVertical: 10,
+    paddingHorizontal: 12,
+    paddingVertical: 4,
     borderRadius: 100,
     backgroundColor: colors.background,
     alignItems: "center",
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
 
   text: {
-    fontSize: 14,
+    fontSize: 10,
     fontFamily: "Poppins_500Medium",
     color: colors.mutedForeground,
   },

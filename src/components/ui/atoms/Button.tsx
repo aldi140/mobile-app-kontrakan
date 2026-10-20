@@ -19,7 +19,7 @@ interface ButtonProps {
   style?: StyleProp<ViewStyle>;
   icon?: IconName;
   loading?: boolean;
-  disable?: boolean;
+  disabled?: boolean;
   onPress?: () => void;
 }
 type Variant = keyof typeof buttonVariants;
@@ -96,25 +96,25 @@ const buttonSizes = {
     minHeight: 40,
     paddingVertical: 8,
     paddingHorizontal: 12,
-    fontSize: 13,
+    fontSize: 12,
   },
   md: {
     minHeight: 44,
+    paddingVertical: 9,
+    paddingHorizontal: 13,
+    fontSize: 13,
+  },
+  lg: {
+    minHeight: 48,
     paddingVertical: 10,
     paddingHorizontal: 14,
     fontSize: 14,
   },
-  lg: {
-    minHeight: 52,
-    paddingVertical: 14,
-    paddingHorizontal: 18,
-    fontSize: 16,
-  },
   xl: {
-    minHeight: 56,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    fontSize: 18,
+    minHeight: 52,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    fontSize: 15,
   },
 };
 
@@ -128,7 +128,7 @@ export const Button = ({
 }: ButtonProps & { children?: React.ReactNode }) => {
   const variantStyle = buttonVariants[variant];
   const sizeStyle = buttonSizes[size];
-  const isDisabled = props.disable || props.loading;
+  const isDisabled = props.disabled || props.loading;
 
   const content = (pressed: boolean) => (
     <>
@@ -137,7 +137,7 @@ export const Button = ({
       ) : (
         <>
           {props.icon && (
-            <Ionicons name={props.icon} size={20} color={variantStyle.color} />
+            <Ionicons name={props.icon} size={16} color={variantStyle.color} />
           )}
           {title && (
             <Text

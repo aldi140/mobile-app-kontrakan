@@ -16,6 +16,8 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Toast from "react-native-toast-message";
 
+const queryClient = new QueryClient();
+
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -32,7 +34,6 @@ export default function RootLayout() {
 
   if (!fontsLoaded) return null;
 
-  const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
       <GestureHandlerRootView style={{ flex: 1 }}>

@@ -23,12 +23,12 @@ export const TextInput = ({
   ...props
 }: TextInputProps) => {
   return (
-    <View style={[{ gap: 4 }, containerStyle]}>
+    <View style={[{ gap: 4 }, containerStyle, { flex: 1 }]}>
       {label && (
-        <Text variant="neutral" size="md" weight="medium">
+        <Text variant="neutral" size="xs" weight="medium">
           {label}{" "}
           {props.optional && (
-            <Text variant="neutral" size="sm">
+            <Text variant="neutral" size="xs" weight="regular">
               {" "}
               (opsional)
             </Text>
@@ -41,12 +41,14 @@ export const TextInput = ({
         placeholderTextColor={colors.muted}
         style={[
           {
-            minHeight: 48,
+            width: "100%",
+            minHeight: 30,
             borderWidth: 1,
             borderColor: error ? colors.error[500] : colors.border,
             borderRadius: 8,
             padding: 12,
-            fontSize: 14,
+            fontSize: 12,
+            // flex: 1,
             color: colors.black,
             fontFamily: "Poppins_400Regular",
             backgroundColor:

@@ -95,9 +95,9 @@ const styles = StyleSheet.create({
   },
   indicator: {
     width: 40,
-    height: 4,
+    height: 3,
     borderRadius: 10,
-    backgroundColor: "#a3a3a3",
+    backgroundColor: "#bdbdbdff",
   },
   footerContainer: {
     paddingHorizontal: 16,

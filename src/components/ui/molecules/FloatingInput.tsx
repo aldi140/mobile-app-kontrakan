@@ -1,5 +1,5 @@
 import { colors } from "@/constants/color";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import {
   Animated,
   TextInput as RNTextInput,
@@ -23,7 +23,7 @@ export const FloatingInput = ({
   ...props
 }: FloatingInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
-  const animatedValue = useRef(new Animated.Value(value ? 1 : 0)).current;
+  const [animatedValue] = useState(() => new Animated.Value(value ? 1 : 0));
 
   const handleFocus = (e: any) => {
     setIsFocused(true);
@@ -52,7 +52,7 @@ export const FloatingInput = ({
     }),
     fontSize: animatedValue.interpolate({
       inputRange: [0, 1],
-      outputRange: [14, 12],
+      outputRange: [12, 10],
     }),
     color: colors.mutedForeground,
   };
@@ -100,13 +100,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     paddingHorizontal: 16,
-    fontSize: 16,
+    fontSize: 12,
     color: colors.foreground,
     fontFamily: "Poppins_500Medium",
   },
   errorText: {
     color: colors.error?.[600] ?? "red",
-    fontSize: 12,
+    fontSize: 10,
     fontFamily: "Poppins_700Bold",
     marginTop: 4,
     marginLeft: 4,

@@ -50,36 +50,36 @@ const ContentCardOccupied = ({
         }}
       >
         <View>
-          <Text size="sm" variant="muted" weight="medium">
+          <Text size="xs" variant="muted" weight="medium">
             Penyewa
           </Text>
-          <Text variant="neutral" size="md" weight="bold">
+          <Text variant="neutral" size="xs" weight="semibold">
             {room.rental_contract?.tenant?.name ?? "-"}
           </Text>
         </View>
         <View>
-          <Text size="sm" variant="muted" weight="medium">
+          <Text size="xs" variant="muted" weight="medium">
             Tgl. Masuk
           </Text>
-          <Text variant="neutral" size="md" weight="semibold">
+          <Text variant="neutral" size="xs" weight="semibold">
             {formatDate(room.rental_contract?.start_date, "short")}
           </Text>
         </View>
         <View>
-          <Text size="sm" variant="muted" weight="medium">
+          <Text size="xs" variant="muted" weight="medium">
             Tarif Bulanan
           </Text>
-          <Text variant="neutral" size="md" weight="bold">
+          <Text variant="neutral" size="xs" weight="semibold">
             {formatRupiah(room.monthly_price)}
           </Text>
         </View>
       </View>
       <View>
         <View>
-          <Text size="sm" variant="muted" weight="medium">
+          <Text size="xs" variant="muted" weight="medium">
             Status Pembayaran
           </Text>
-          <Text variant="neutral" size="md" weight="bold">
+          <Text variant="neutral" size="xs" weight="semibold">
             {paymentStatusLabel[room.rental_contract?.payment_status]}
           </Text>
         </View>
@@ -93,7 +93,7 @@ const ContentCardOccupied = ({
         <Button
           title="Bayar Tagihan"
           variant="success"
-          size="md"
+          size="sm"
           onPress={() => onCreatePayment?.(room)}
           icon="receipt-outline"
           style={{ flex: 1 }}
@@ -101,7 +101,7 @@ const ContentCardOccupied = ({
         <Button
           title="Akhiri Kontrak"
           variant="outline"
-          size="md"
+          size="sm"
           style={{ flex: 1 }}
           onPress={() => onDeleteContract?.(room)}
           icon="log-out-outline"
@@ -137,14 +137,14 @@ const ContentCardAvailable = ({
             size={24}
             color={colors.secondary[500]}
           />
-          <Text variant="muted" size="sm" weight="regular">
+          <Text variant="muted" size="xs" weight="regular">
             Kamar tersedia dan siap disewakan
           </Text>
         </View>
         <Button
           title="Buat Kontrak"
           variant="primaryGradient"
-          size="md"
+          size="sm"
           icon="add"
           onPress={onCreateContract}
           style={{ width: "100%" }}
@@ -223,11 +223,11 @@ const styles = StyleSheet.create({
   headerInfoContainer: {
     flexDirection: "row",
     alignItems: "center",
-    gap: 16,
+    gap: 8,
   },
-  cardTitle: { fontSize: 16, fontWeight: "bold" },
+  cardTitle: { fontSize: 14, fontWeight: "bold" },
   cardDescrition: {
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: "normal",
   },
   cardContent: {

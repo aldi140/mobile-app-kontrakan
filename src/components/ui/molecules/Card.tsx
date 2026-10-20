@@ -2,12 +2,12 @@ import { colors } from "@/constants/color";
 import * as React from "react";
 import { StyleSheet, Text, TextProps, View, ViewProps } from "react-native";
 
-export interface CardProps extends ViewProps {}
-export interface CardHeaderProps extends ViewProps {}
-export interface CardTitleProps extends TextProps {}
-export interface CardDescriptionProps extends TextProps {}
-export interface CardContentProps extends ViewProps {}
-export interface CardFooterProps extends ViewProps {}
+export interface CardProps extends ViewProps { }
+export interface CardHeaderProps extends ViewProps { }
+export interface CardTitleProps extends TextProps { }
+export interface CardDescriptionProps extends TextProps { }
+export interface CardContentProps extends ViewProps { }
+export interface CardFooterProps extends ViewProps { }
 
 const CardHeader = React.forwardRef<View, CardHeaderProps>(
   ({ style, ...props }, ref) => (
@@ -74,18 +74,18 @@ const styles = StyleSheet.create({
     elevation: 1,
   },
   header: {
-    padding: 20,
+    padding: 16,
     gap: 6,
   },
   title: {
-    fontSize: 16,
+    fontSize: 14,
     color: colors.foreground,
     letterSpacing: -0.4,
     lineHeight: 20,
     fontFamily: "Poppins_500Medium",
   },
   description: {
-    fontSize: 14,
+    fontSize: 12,
     color: colors.mutedForeground,
     lineHeight: 20,
     fontFamily: "Poppins_400Regular",

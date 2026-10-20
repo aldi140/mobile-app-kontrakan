@@ -1,10 +1,10 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/molecules/Card";
 import { colors } from "@/constants/color";
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Animated, StyleSheet, View } from "react-native";
 
 export const SkeletonRoomCard = () => {
-  const opacity = useRef(new Animated.Value(0.4)).current;
+  const [opacity] = useState(() => new Animated.Value(0.4));
 
   useEffect(() => {
     const animation = Animated.loop(
