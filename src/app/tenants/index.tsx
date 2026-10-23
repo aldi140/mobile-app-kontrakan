@@ -43,6 +43,7 @@ export default function TenantScreen() {
                             data={tenants}
                             keyExtractor={(item) => item.id}
                             renderItem={({ item }) => <TenantCard tenant={item} />}
+                            ItemSeparatorComponent={() => <View style={{ height: 12 }} />}
                             onEndReached={() => {
                                 if (hasNextPage && !isFetchingNextPage) {
                                     fetchNextPage();
@@ -58,7 +59,7 @@ export default function TenantScreen() {
                             }
                             ListEmptyComponent={
                                 <View style={{ paddingVertical: 40, alignItems: "center" }}>
-                                    <Text variant="neutral" size="sm">Belum ada penyewa</Text>
+                                    <Text variant="neutral" size="sm">Data tidak ada</Text>
                                 </View>
                             }
                         />
