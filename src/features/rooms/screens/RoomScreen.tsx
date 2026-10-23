@@ -150,7 +150,7 @@ export default function RoomScreen() {
                         </View>
                     ) : (
                         <Text style={{ textAlign: "center", marginTop: 24 }}>
-                            Tidak ada kamar
+                            Data tidak ada
                         </Text>
                     )
                 }

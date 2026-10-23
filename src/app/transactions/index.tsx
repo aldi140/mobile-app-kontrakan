@@ -184,7 +184,7 @@ export default function TransactionScreen() {
                 }}
               >
                 <Text variant="neutral" size="sm">
-                  Belum ada transaksi
+                  Data tidak ada
                 </Text>
               </View>
             }

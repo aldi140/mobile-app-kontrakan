@@ -42,7 +42,7 @@ axiosInstance.interceptors.response.use(
         await AsyncStorage.removeItem("token");
 
         throw new AppError(
-          "Sesi Anda telah berakhir.",
+          data?.message ? "Email atau password salah" : "Sesi Anda telah berakhir.",
           "UNAUTHORIZED",
           401,
           data,
