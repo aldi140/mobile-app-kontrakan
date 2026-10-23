@@ -1,7 +1,8 @@
-## Account Testing APP KONTRAKAN
+## Download APK
 
-email: luffy@gmail.com
-pass: password
+[![Download APK](https://img.shields.io/badge/Download-KEW%20v1.0.0-green?logo=android&logoColor=white)](https://github.com/aldi140/mobile-app-kontrakan/releases/download/v1.0.0/KEW-v1.0.0.apk)
+
+Atau lihat semua rilis di [halaman Releases](https://github.com/aldi140/mobile-app-kontrakan/releases/tag/v1.0.0).
 
 # Welcome to your Expo app 👋
 
